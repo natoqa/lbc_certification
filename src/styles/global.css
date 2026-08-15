@@ -1,0 +1,469 @@
+@import "tailwindcss";
+
+/*
+  LBC Certification — Design System
+  
+  Typography rationale:
+  - DM Serif Display: High-contrast transitional serif that evokes certificate headers,
+    notarial seals, and official institutional documents. Signals authority and gravitas
+    without being decorative. Cannot be confused with a SaaS landing page.
+  - Source Sans 3: Adobe's humanist sans-serif designed for long-form readability.
+    Neutral enough not to compete with serif headings, but has enough character
+    (humanist proportions) to avoid feeling like a system default.
+    
+  Color rationale:
+  - Gold #C4963C is intentionally desaturated — think notary stamp / embossed foil,
+    not crypto logo / bright award ribbon. Used ONLY as accent on buttons, seal details,
+    card top-borders. Never as a large background fill.
+*/
+
+@theme {
+  /* Navy palette — institutional authority */
+  --color-navy-900: #0B1D3A;
+  --color-navy-800: #0F2647;
+  --color-navy-700: #132E5B;
+  --color-navy-600: #1A3D73;
+  --color-navy-50: #F0F4FA;
+
+  /* Silver palette — neutral structure */
+  --color-silver-400: #9CA8B7;
+  --color-silver-300: #B4BEC9;
+  --color-silver-200: #D0D7DF;
+  --color-silver-100: #E8ECF2;
+  --color-silver-50: #F4F6F9;
+
+  /* Gold accent — certificates, seals, authority marks */
+  --color-gold-600: #A67C2E;
+  --color-gold-500: #C4963C;
+  --color-gold-400: #D4AC5A;
+  --color-gold-300: #E0C47E;
+
+  /* WhatsApp green palette */
+  --color-whatsapp-600: #1EBE5D;
+  --color-whatsapp-500: #25D366;
+  --color-whatsapp-400: #4ADE80;
+  --color-whatsapp-700: #128C7E;
+
+  /* Typography */
+  --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale extensions */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
+
+  /* Custom breakpoint for 32"+ monitors (2240px / 140rem+) */
+  --breakpoint-32inch: 140rem;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy-900);
+  background-color: #ffffff;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings — DM Serif Display for institutional gravitas */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ========================================
+   AUDIT TRAIL MOTIF
+   Signature visual device: vertical line with seal nodes
+   evokes the progression of a certification audit process.
+   ======================================== */
+
+.audit-trail {
+  position: relative;
+}
+
+.audit-trail::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-silver-300) 10%,
+    var(--color-silver-300) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.seal-node {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold-500);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(196, 150, 60, 0.12);
+  z-index: 1;
+}
+
+.seal-node--active {
+  background: var(--color-gold-500);
+}
+
+/* ========================================
+   GRID-PAPER PATTERN
+   Subtle background for FAQ section — evokes
+   audit worksheets and checklists.
+   ======================================== */
+
+.grid-paper {
+  background-image:
+    linear-gradient(var(--color-silver-100) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-silver-100) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  background-position: center center;
+}
+
+/* ========================================
+   CERTIFICATE CARD TOP-BORDER
+   Gold foil accent referencing ISO certificate detail.
+   ======================================== */
+
+.cert-card {
+  position: relative;
+  border-top: 2px solid var(--color-gold-500);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(11, 29, 58, 0.1);
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--color-whatsapp-500);
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--color-whatsapp-600);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-whatsapp-500);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 1.5px solid var(--color-silver-400);
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-secondary:hover {
+  border-color: white;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.btn-cta-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--color-whatsapp-500);
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+}
+
+.btn-cta-header:hover {
+  background: var(--color-whatsapp-600);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+}
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+   Official WhatsApp green tone (#25D366).
+   ======================================== */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-whatsapp-500);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  background: var(--color-whatsapp-600);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5), 0 0 0 3px rgba(37, 211, 102, 0.2);
+  transform: scale(1.05);
+}
+
+.whatsapp-float:focus-visible {
+  outline: 2px solid var(--color-whatsapp-500);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   SECTION SPACING
+   ======================================== */
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+/* ========================================
+   ULTRA-WIDE & LARGE MONITOR ADAPTATIONS (32"+ / 2560px+)
+   Applies ONLY to screens ≥ 2240px (140rem).
+   Standard 1080p desktops (1920px) remain 100% standard.
+   ======================================== */
+
+@media (min-width: 140rem) {
+  html {
+    font-size: 118.75%; /* 19px base → comfortable scale for 32"+ screens */
+  }
+
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cert-card:hover {
+    transform: none;
+  }
+  
+  .whatsapp-float:hover {
+    transform: none;
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+}
+
+/* Enhanced focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-navy-900);
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 0.375rem 0.375rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ========================================
+   FAQ ACCORDION
+   ======================================== */
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::marker {
+  display: none;
+  content: '';
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   TEXT REVEAL ANIMATION
+   Line-by-line entrance with blur, opacity, translateY.
+   Triggered by IntersectionObserver via reveal-text.js.
+   ======================================== */
+
+.reveal-line {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-line__inner {
+  display: block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(100%);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.reveal-line__inner.revealed {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* Reduced motion: show text immediately, no animation */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-line__inner {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   WORD-BY-WORD REVEAL ANIMATION
+   Staggered word entrance for paragraphs.
+   Triggered by IntersectionObserver via reveal-words.js.
+   ======================================== */
+
+.reveal-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(20px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.reveal-word.revealed {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* Reduced motion: show words immediately */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.active {
+  display: flex;
+}

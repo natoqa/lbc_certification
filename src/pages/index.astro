@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Audience from '../components/Audience.astro';
+import WhyUs from '../components/WhyUs.astro';
+import FAQ from '../components/FAQ.astro';
+import FutureSections from '../components/FutureSections.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+/*
+  JSON-LD Structured Data
+  - Organization: LBC Certification company info
+  - FAQPage: 6 Q&A pairs for rich results
+  - Service: one per ISO certification offered
+*/
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LBC Certification S.A.C.",
+  "alternateName": "LBC Certification",
+  "url": "https://lbccertification.com",
+  "logo": "https://lbccertification.com/logo.svg",
+  "description": "Organismo de certificación de sistemas de gestión bajo normas internacionales ISO, con cobertura a nivel nacional en Perú.",
+  "telephone": "+51913233177",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Perú"
+  },
+  "serviceType": "Certificación ISO",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+51913233177",
+    "contactType": "customer service",
+    "availableLanguage": "Spanish"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta obtener una certificación ISO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El costo se determina de acuerdo con la norma, el número de trabajadores, las sedes, el alcance del sistema de gestión y la complejidad de la organización. Elaboramos una cotización personalizada sin compromiso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo demora el proceso de certificación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del nivel de preparación de la organización y del alcance de la certificación. Una vez aceptada la propuesta, coordinamos el plan de auditoría y las fechas de ejecución de manera ágil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué requisitos debo cumplir antes de certificarme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La organización debe contar con un sistema de gestión implementado y operativo antes de iniciar el proceso de certificación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La certificación tiene reconocimiento internacional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nuestras certificaciones se desarrollan conforme a normas internacionales y bajo principios de imparcialidad, independencia y competencia técnica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué sucede si se identifican no conformidades durante la auditoría?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se otorga un plazo para implementar las acciones correctivas correspondientes. Una vez verificadas y aceptadas, el proceso continúa hasta la decisión de certificación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo iniciar el proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo debe contactarnos por WhatsApp. Un especialista analizará sus necesidades y le enviará una propuesta técnica y económica adaptada a su organización."
+      }
+    }
+  ]
+};
+
+const serviceSchemas = [
+  { name: "Certificación ISO 9001 - Gestión de la Calidad", description: "Certificación del sistema de gestión de la calidad conforme a la norma ISO 9001." },
+  { name: "Certificación ISO 14001 - Gestión Ambiental", description: "Certificación del sistema de gestión ambiental conforme a la norma ISO 14001." },
+  { name: "Certificación ISO 45001 - Seguridad y Salud en el Trabajo", description: "Certificación del sistema de gestión de seguridad y salud en el trabajo conforme a la norma ISO 45001." },
+  { name: "Certificación ISO 37001 - Antisoborno", description: "Certificación del sistema de gestión antisoborno conforme a la norma ISO 37001." },
+  { name: "Certificación ISO 39001 - Seguridad Vial", description: "Certificación del sistema de gestión de seguridad vial conforme a la norma ISO 39001." },
+  { name: "Certificación ISO 50001 - Gestión de la Energía", description: "Certificación del sistema de gestión de la energía conforme a la norma ISO 50001." },
+  { name: "Certificación ISO 55001 - Gestión de Activos", description: "Certificación del sistema de gestión de activos conforme a la norma ISO 55001." },
+  { name: "Certificación ISO 22000 / HACCP - Inocuidad Alimentaria", description: "Certificación del sistema de gestión de inocuidad alimentaria conforme a la norma ISO 22000 y HACCP." },
+  { name: "Auditorías de Segunda Parte", description: "Evaluación objetiva de proveedores y partes interesadas conforme a criterios específicos." },
+  { name: "Auditorías de Diagnóstico", description: "Evaluación preliminar del sistema de gestión para identificar brechas y oportunidades de mejora." },
+  { name: "Auditorías de Seguimiento y Recertificación", description: "Verificación periódica del cumplimiento y mantenimiento del sistema de gestión certificado." },
+  { name: "Programas de Capacitación para Auditores Internos", description: "Formación especializada para desarrollar competencias en auditorías internas." }
+].map(s => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": s.name,
+  "description": s.description,
+  "provider": {
+    "@type": "Organization",
+    "name": "LBC Certification S.A.C."
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Perú"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "PEN",
+    "price": "1000",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "priceCurrency": "PEN",
+      "price": "1000",
+      "description": "Cotizaciones desde S/1,000, según alcance"
+    }
+  }
+}));
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <!-- Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <!-- Service Schemas -->
+    {serviceSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </Fragment>
+
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Audience />
+    <WhyUs />
+    <FAQ />
+    <FutureSections />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>

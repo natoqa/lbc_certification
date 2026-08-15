@@ -1,0 +1,71 @@
+---
+/*
+  WhyUs — Three differentiators with client's exact copy.
+  Uses audit trail timeline connecting the three points.
+  navy-50 background for alternating section contrast.
+*/
+
+const reasons = [
+  {
+    title: "Auditores calificados",
+    copy: "Auditores altamente calificados y con amplia experiencia multisectorial, garantizando evaluaciones técnicas, objetivas e imparciales.",
+    step: "01"
+  },
+  {
+    title: "Proceso transparente",
+    copy: "Proceso de certificación transparente y eficiente, con acompañamiento durante todas las etapas y tiempos de respuesta oportunos.",
+    step: "02"
+  },
+  {
+    title: "Reconocimiento internacional",
+    copy: "Certificaciones emitidas bajo estándares internacionales, fortaleciendo la confianza, competitividad y reconocimiento de las organizaciones en el mercado.",
+    step: "03"
+  }
+];
+---
+
+<section id="por-que-elegirnos" class="section-padding bg-navy-50">
+  <div class="max-w-5xl 2xl:max-w-[85rem] 3xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+    
+    <div class="text-center mb-14">
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">¿Por qué elegirnos?</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal>
+        Compromiso con la excelencia en cada auditoría
+      </h2>
+    </div>
+
+    <!-- Timeline / Audit Trail -->
+    <div class="relative">
+      <!-- Vertical line (hidden on mobile, visible on md+) -->
+      <div class="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-silver-200 via-silver-300 to-silver-200" aria-hidden="true"></div>
+
+      <div class="flex flex-col gap-8 md:gap-0">
+        {reasons.map((reason, index) => (
+          <div class="relative md:pl-24 md:pb-12 last:md:pb-0 group">
+            {/* Timeline node */}
+            <div class="hidden md:flex absolute left-4 top-2 items-center justify-center" aria-hidden="true">
+              <div class="w-8 h-8 rounded-full border-2 border-gold-500 bg-white flex items-center justify-center shadow-sm group-hover:bg-gold-500/5 transition-colors">
+                <span class="text-gold-600 text-xs font-bold font-sans">{reason.step}</span>
+              </div>
+            </div>
+
+            {/* Content card */}
+            <div class="bg-white rounded-lg p-6 sm:p-8 border border-silver-100 shadow-sm hover:shadow-md transition-shadow">
+              {/* Mobile step indicator */}
+              <div class="md:hidden flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-full border-2 border-gold-500 bg-navy-50 flex items-center justify-center">
+                  <span class="text-gold-600 text-xs font-bold font-sans">{reason.step}</span>
+                </div>
+                <div class="h-px flex-1 bg-silver-200" aria-hidden="true"></div>
+              </div>
+
+              <h3 class="font-serif text-xl sm:text-2xl text-navy-900 mb-3" data-reveal>{reason.title}</h3>
+              <p class="text-navy-900/65 text-base leading-relaxed font-sans" data-reveal-words>{reason.copy}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

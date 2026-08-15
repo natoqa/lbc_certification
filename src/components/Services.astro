@@ -1,0 +1,147 @@
+---
+/*
+  Services — Hero card for general certification + 12 service cards.
+  Each card is a semantic <article> with gold top-border (cert-card class).
+  ISO numbers and full names are keyword-rich for SEO.
+*/
+
+const services = [
+  {
+    iso: "ISO 9001",
+    name: "Gestión de la Calidad",
+    description: "Certificación del sistema de gestión de la calidad para mejorar la satisfacción del cliente y la eficiencia de los procesos organizacionales."
+  },
+  {
+    iso: "ISO 14001",
+    name: "Gestión Ambiental",
+    description: "Certificación del sistema de gestión ambiental para minimizar el impacto en el medio ambiente y cumplir con la normativa vigente."
+  },
+  {
+    iso: "ISO 45001",
+    name: "Seguridad y Salud en el Trabajo",
+    description: "Certificación del sistema de gestión de seguridad y salud ocupacional para la prevención de lesiones y enfermedades laborales."
+  },
+  {
+    iso: "ISO 37001",
+    name: "Antisoborno",
+    description: "Certificación del sistema de gestión antisoborno para prevenir, detectar y abordar prácticas de soborno dentro de la organización."
+  },
+  {
+    iso: "ISO 39001",
+    name: "Seguridad Vial",
+    description: "Certificación del sistema de gestión de seguridad vial para reducir muertes y lesiones graves por accidentes de tránsito."
+  },
+  {
+    iso: "ISO 50001",
+    name: "Gestión de la Energía",
+    description: "Certificación del sistema de gestión de la energía para mejorar el desempeño energético y reducir costos operativos."
+  },
+  {
+    iso: "ISO 55001",
+    name: "Gestión de Activos",
+    description: "Certificación del sistema de gestión de activos para optimizar el valor y el rendimiento de los activos de la organización."
+  },
+  {
+    iso: "ISO 22000 / HACCP",
+    name: "Inocuidad Alimentaria",
+    description: "Certificación del sistema de gestión de inocuidad alimentaria para garantizar la seguridad de los productos en la cadena alimentaria."
+  },
+  {
+    iso: null,
+    name: "Auditorías de Segunda Parte",
+    description: "Evaluación objetiva de proveedores y partes interesadas conforme a criterios específicos definidos por su organización.",
+    icon: "clipboard"
+  },
+  {
+    iso: null,
+    name: "Auditorías de Diagnóstico",
+    description: "Evaluación preliminar del sistema de gestión para identificar brechas y oportunidades de mejora antes de la auditoría de certificación.",
+    icon: "search"
+  },
+  {
+    iso: null,
+    name: "Auditorías de Seguimiento y Recertificación",
+    description: "Verificación periódica del cumplimiento y mantenimiento del sistema de gestión certificado para renovar la certificación.",
+    icon: "refresh"
+  },
+  {
+    iso: null,
+    name: "Programas de Capacitación para Auditores Internos",
+    description: "Formación especializada para desarrollar las competencias necesarias en la realización de auditorías internas efectivas.",
+    icon: "users"
+  }
+];
+---
+
+<section id="servicios" class="section-padding bg-navy-50">
+  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+    
+    <div class="text-center mb-12">
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">Nuestros servicios</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal>
+        Certificación bajo normas internacionales ISO
+      </h2>
+      <p class="text-navy-900/60 text-base sm:text-lg 2xl:text-xl max-w-2xl 2xl:max-w-3xl mx-auto font-sans" data-reveal-words>
+        Ofrecemos servicios de certificación, auditoría y capacitación adaptados a las necesidades de cada organización.
+      </p>
+    </div>
+
+    <!-- Hero Service Card — General Certification -->
+    <div class="mb-12 bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden">
+      <!-- Subtle pattern -->
+      <div class="absolute inset-0 opacity-[0.04]" aria-hidden="true">
+        <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 3rem 3rem;"></div>
+      </div>
+      
+      <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full border-2 border-gold-500 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <path d="M22 4L12 14.01l-3-3"/>
+              </svg>
+            </div>
+            <span class="text-gold-400 text-sm font-semibold tracking-wider uppercase font-sans">Servicio principal</span>
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl mb-3" data-reveal>Certificación de Sistemas de Gestión ISO</h3>
+          <p class="text-silver-300 text-base leading-relaxed max-w-2xl font-sans" data-reveal-words>
+            Proceso completo de certificación que incluye revisión documental, auditoría en sitio, emisión del certificado y programa de seguimiento, ejecutado por auditores calificados e imparciales.
+          </p>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-4 shrink-0">
+          <div class="text-right">
+            <span class="block text-silver-400 text-sm font-sans">Cotizaciones desde</span>
+            <span class="block font-serif text-3xl text-white">S/1,000</span>
+            <span class="block text-silver-400 text-xs font-sans">según alcance</span>
+          </div>
+          <a 
+            href="https://wa.me/51913233177" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn-primary"
+            id="services-cta-whatsapp"
+          >
+            Solicite cotización
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Cards Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-6 gap-5 2xl:gap-6">
+      {services.map((service) => (
+        <article class="cert-card bg-white rounded-lg p-6 flex flex-col">
+          {service.iso ? (
+            <span class="text-gold-500 text-xs font-bold tracking-wider uppercase font-sans mb-2">{service.iso}</span>
+          ) : (
+            <span class="text-navy-700 text-xs font-bold tracking-wider uppercase font-sans mb-2">Servicio especializado</span>
+          )}
+          <h3 class="font-serif text-lg text-navy-900 mb-3 leading-snug">{service.name}</h3>
+          <p class="text-navy-900/60 text-sm leading-relaxed font-sans flex-1">{service.description}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+/*
+  FAQ — 6 Q&A accordion items. Uses <details>/<summary> for native accessibility.
+  Grid-paper background pattern for audit-worksheet feel.
+  Content matches brief exactly — no rewrites.
+*/
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta obtener una certificación ISO?",
+    answer: "El costo se determina de acuerdo con la norma, el número de trabajadores, las sedes, el alcance del sistema de gestión y la complejidad de la organización. Elaboramos una cotización personalizada sin compromiso."
+  },
+  {
+    question: "¿Cuánto tiempo demora el proceso de certificación?",
+    answer: "Depende del nivel de preparación de la organización y del alcance de la certificación. Una vez aceptada la propuesta, coordinamos el plan de auditoría y las fechas de ejecución de manera ágil."
+  },
+  {
+    question: "¿Qué requisitos debo cumplir antes de certificarme?",
+    answer: "La organización debe contar con un sistema de gestión implementado y operativo antes de iniciar el proceso de certificación."
+  },
+  {
+    question: "¿La certificación tiene reconocimiento internacional?",
+    answer: "Nuestras certificaciones se desarrollan conforme a normas internacionales y bajo principios de imparcialidad, independencia y competencia técnica."
+  },
+  {
+    question: "¿Qué sucede si se identifican no conformidades durante la auditoría?",
+    answer: "Se otorga un plazo para implementar las acciones correctivas correspondientes. Una vez verificadas y aceptadas, el proceso continúa hasta la decisión de certificación."
+  },
+  {
+    question: "¿Cómo puedo iniciar el proceso?",
+    answer: "Solo debe contactarnos por WhatsApp. Un especialista analizará sus necesidades y le enviará una propuesta técnica y económica adaptada a su organización."
+  }
+];
+---
+
+<section id="preguntas-frecuentes" class="section-padding bg-white relative">
+  <!-- Grid paper background (audit worksheet motif) -->
+  <div class="absolute inset-0 grid-paper opacity-40 pointer-events-none" aria-hidden="true"></div>
+  
+  <div class="relative max-w-3xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+    
+    <div class="text-center mb-12">
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">Preguntas frecuentes</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal>
+        Resolvemos sus dudas sobre certificación
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      {faqs.map((faq, index) => (
+        <details class="faq-item group bg-white rounded-lg border border-silver-200 overflow-hidden hover:border-silver-300 transition-colors">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 font-sans font-semibold text-navy-900 text-base sm:text-[1.0625rem]">
+            <span>{faq.question}</span>
+            <svg class="faq-chevron w-5 h-5 text-silver-400 group-hover:text-gold-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 pt-0">
+            <p class="text-navy-900/65 text-[0.9375rem] leading-relaxed font-sans border-t border-silver-100 pt-4">
+              {faq.answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <p class="text-center mt-8 text-navy-900/50 text-sm font-sans">
+      ¿Tiene otra consulta? 
+      <a 
+        href="https://wa.me/51913233177" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-gold-500 font-semibold hover:text-gold-600 transition-colors underline underline-offset-2"
+      >
+        Escríbanos por WhatsApp
+      </a>
+    </p>
+  </div>
+</section>

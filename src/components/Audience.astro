@@ -1,0 +1,109 @@
+---
+/*
+  Audience — ¿A quién atendemos?
+  Target audience, motivations for seeking certification, key benefits.
+*/
+
+const motivations = [
+  {
+    title: "Términos de referencia del Estado",
+    description: "Cumplimiento de requisitos de certificación ISO exigidos en procesos de contratación pública y TDR del Estado peruano.",
+    icon: "file-text"
+  },
+  {
+    title: "Licitaciones con medianas y grandes empresas",
+    description: "Demostración de capacidad y cumplimiento normativo para participar como proveedor o socio estratégico en licitaciones privadas.",
+    icon: "briefcase"
+  },
+  {
+    title: "Prestigio y reconocimiento",
+    description: "Posicionamiento como organización que cumple estándares internacionales, fortaleciendo la imagen institucional ante clientes y partes interesadas.",
+    icon: "award"
+  },
+  {
+    title: "Estandarización de procesos",
+    description: "Implementación de una cultura de mejora continua, asegurando la consistencia operativa y la satisfacción del cliente.",
+    icon: "layers"
+  }
+];
+---
+
+<section id="a-quien-atendemos" class="section-padding bg-white">
+  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+    
+    <div class="text-center mb-12">
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">¿A quién atendemos?</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal>
+        Empresas de todos los sectores que buscan certificarse
+      </h2>
+      <p class="text-navy-900/60 text-base sm:text-lg 2xl:text-xl max-w-3xl 2xl:max-w-4xl mx-auto font-sans" data-reveal-words>
+        Organizaciones que necesitan certificación ISO para acceder a nuevas oportunidades de negocio, cumplir requisitos normativos y mejorar su competitividad en el mercado.
+      </p>
+    </div>
+
+    <!-- Motivations Grid -->
+    <div class="grid sm:grid-cols-2 2xl:grid-cols-4 gap-6 mb-12">
+      {motivations.map((item) => (
+        <div class="flex gap-5 p-6 rounded-lg bg-navy-50 border border-silver-100">
+          <div class="shrink-0 w-12 h-12 rounded-lg bg-navy-900 flex items-center justify-center">
+            {item.icon === "file-text" && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            )}
+            {item.icon === "briefcase" && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+              </svg>
+            )}
+            {item.icon === "award" && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            )}
+            {item.icon === "layers" && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+              </svg>
+            )}
+          </div>
+          <div>
+            <h3 class="font-serif text-lg text-navy-900 mb-2">{item.title}</h3>
+            <p class="text-navy-900/60 text-sm leading-relaxed font-sans">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Key Benefit Summary -->
+    <div class="text-center bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03]" aria-hidden="true">
+        <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px); background-size: 3rem 3rem;"></div>
+      </div>
+      <div class="relative">
+        <h3 class="font-serif text-xl sm:text-2xl mb-3" data-reveal>Más contratos. Mayor competitividad. Procesos estandarizados.</h3>
+        <p class="text-silver-300 text-base max-w-2xl mx-auto mb-6 font-sans" data-reveal-words>
+          La certificación ISO es la puerta de entrada a licitaciones públicas y privadas, y una señal de confianza para sus clientes y socios estratégicos.
+        </p>
+        <a 
+          href="https://wa.me/51913233177" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex"
+          id="audience-cta-whatsapp"
+        >
+          Consulte sobre su certificación
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
