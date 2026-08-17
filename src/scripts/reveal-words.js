@@ -33,32 +33,49 @@
   );
 
   /**
-   * Split element text into individual word spans.
+   * Recursively split text nodes into word spans while preserving HTML structure.
+   */
+  function splitNode(node, container, wordCounter) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const parts = node.textContent.split(/(\s+)/);
+      parts.forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          container.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'reveal-word';
+          span.textContent = part;
+          span.style.setProperty('--word-index', wordCounter.count++);
+          container.appendChild(span);
+        }
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const clone = node.cloneNode(false);
+      Array.from(node.childNodes).forEach((child) => {
+        splitNode(child, clone, wordCounter);
+      });
+      container.appendChild(clone);
+    }
+  }
+
+  /**
+   * Split element text into individual word spans while preserving HTML tags (e.g. <strong>).
    */
   function splitIntoWords(el) {
-    const originalText = el.dataset.revealWordsOriginal || el.textContent;
-    el.dataset.revealWordsOriginal = originalText;
-
-    const words = originalText.trim().split(/\s+/);
-    if (words.length === 0) return;
-
-    el.innerHTML = '';
+    if (!el.dataset.revealWordsOriginalHtml) {
+      el.dataset.revealWordsOriginalHtml = el.innerHTML;
+    } else {
+      el.innerHTML = el.dataset.revealWordsOriginalHtml;
+    }
 
     const frag = document.createDocumentFragment();
-
-    words.forEach((word, i) => {
-      const span = document.createElement('span');
-      span.className = 'reveal-word';
-      span.textContent = word;
-      span.style.setProperty('--word-index', i);
-      frag.appendChild(span);
-
-      // Add a text node for the space between words
-      if (i < words.length - 1) {
-        frag.appendChild(document.createTextNode(' '));
-      }
+    const wordCounter = { count: 0 };
+    Array.from(el.childNodes).forEach((child) => {
+      splitNode(child, frag, wordCounter);
     });
 
+    el.innerHTML = '';
     el.appendChild(frag);
   }
 

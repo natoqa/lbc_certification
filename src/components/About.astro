@@ -11,7 +11,12 @@ const sectors = [
   "Industria",
   "Hidrocarburos",
   "Manufactura",
-  "Servicios"
+  "Servicios",
+  "Transporte y Logística",
+  "Salud",
+  "Alimentos",
+  "Tecnología",
+  "Sector Público"
 ];
 ---
 
@@ -24,21 +29,21 @@ const sectors = [
       <div>
         <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">Sobre nosotros</span>
         <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-6" data-reveal>
-          Certificación con cobertura a nivel nacional
+          Certificación acreditada, con cobertura a nivel nacional
         </h2>
         <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-6" data-reveal-words>
-          LBC Certification es un organismo de certificación de sistemas de gestión bajo normas ISO, con presencia en todo el territorio peruano. Brindamos servicios a organizaciones de todos los sectores y tamaños, bajo principios de imparcialidad, independencia y competencia técnica.
+          <strong class="font-bold text-navy-900">LBC CERTIFICATION S.A.C.</strong> es una organización especializada en la <strong class="font-bold text-navy-900">certificación de sistemas de gestión bajo normas internacionales ISO</strong>, orientada a brindar servicios de evaluación de la conformidad con los más altos principios de integridad, imparcialidad y competencia técnica.
         </p>
         <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-8" data-reveal-words data-reveal-words-delay="1600">
-          Nuestro equipo de auditores calificados acompaña a cada organización durante todo el proceso de certificación, desde la revisión documental hasta el seguimiento periódico del sistema de gestión.
+          Trabajamos con organizaciones de diferentes sectores y tamaños, comprendiendo las particularidades de cada negocio y aplicando procesos de evaluación adaptados a su alcance y contexto.
         </p>
 
         <!-- Sector Tags -->
         <div class="mb-2">
-          <span class="text-navy-900/50 text-sm font-semibold uppercase tracking-wider mb-3 block">Sectores que confían en nosotros</span>
-          <div class="flex flex-wrap gap-2">
+          <span class="text-navy-900/50 text-sm font-semibold uppercase tracking-wider mb-3 block">Sectores que atendemos</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {sectors.map((sector) => (
-              <span class="px-3 py-1.5 text-sm font-sans font-semibold text-navy-700 bg-navy-50 rounded border border-silver-200">
+              <span class="h-11 flex items-center justify-center px-3 text-sm font-sans font-semibold text-navy-700 bg-navy-50 rounded-md border border-silver-200 text-center whitespace-nowrap">
                 {sector}
               </span>
             ))}

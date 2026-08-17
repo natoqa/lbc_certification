@@ -6,8 +6,9 @@ import About from '../components/About.astro';
 import Services from '../components/Services.astro';
 import Audience from '../components/Audience.astro';
 import WhyUs from '../components/WhyUs.astro';
+import SuccessCases from '../components/SuccessCases.astro';
 import FAQ from '../components/FAQ.astro';
-import FutureSections from '../components/FutureSections.astro';
+import Team from '../components/Team.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
@@ -74,7 +75,7 @@ const faqSchema = {
       "name": "¿La certificación tiene reconocimiento internacional?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nuestras certificaciones se desarrollan conforme a normas internacionales y bajo principios de imparcialidad, independencia y competencia técnica."
+        "text": "Nuestras certificaciones se desarrollan conforme a normas internacionales ISO, aplicando principios de imparcialidad, independencia y competencia técnica en todo el proceso de evaluación. Si su organización requiere una certificación con alcance de acreditación específico, coordinamos con usted los detalles según su necesidad."
       }
     },
     {
@@ -90,25 +91,25 @@ const faqSchema = {
       "name": "¿Cómo puedo iniciar el proceso?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Solo debe contactarnos por WhatsApp. Un especialista analizará sus necesidades y le enviará una propuesta técnica y económica adaptada a su organización."
+        "text": "Escríbanos por WhatsApp. Un especialista analizará sus necesidades y le enviará una propuesta técnica y económica adaptada a su organización."
       }
     }
   ]
 };
 
 const serviceSchemas = [
-  { name: "Certificación ISO 9001 - Gestión de la Calidad", description: "Certificación del sistema de gestión de la calidad conforme a la norma ISO 9001." },
-  { name: "Certificación ISO 14001 - Gestión Ambiental", description: "Certificación del sistema de gestión ambiental conforme a la norma ISO 14001." },
-  { name: "Certificación ISO 45001 - Seguridad y Salud en el Trabajo", description: "Certificación del sistema de gestión de seguridad y salud en el trabajo conforme a la norma ISO 45001." },
-  { name: "Certificación ISO 37001 - Antisoborno", description: "Certificación del sistema de gestión antisoborno conforme a la norma ISO 37001." },
-  { name: "Certificación ISO 39001 - Seguridad Vial", description: "Certificación del sistema de gestión de seguridad vial conforme a la norma ISO 39001." },
-  { name: "Certificación ISO 50001 - Gestión de la Energía", description: "Certificación del sistema de gestión de la energía conforme a la norma ISO 50001." },
-  { name: "Certificación ISO 55001 - Gestión de Activos", description: "Certificación del sistema de gestión de activos conforme a la norma ISO 55001." },
-  { name: "Certificación ISO 22000 / HACCP - Inocuidad Alimentaria", description: "Certificación del sistema de gestión de inocuidad alimentaria conforme a la norma ISO 22000 y HACCP." },
-  { name: "Auditorías de Segunda Parte", description: "Evaluación objetiva de proveedores y partes interesadas conforme a criterios específicos." },
-  { name: "Auditorías de Diagnóstico", description: "Evaluación preliminar del sistema de gestión para identificar brechas y oportunidades de mejora." },
-  { name: "Auditorías de Seguimiento y Recertificación", description: "Verificación periódica del cumplimiento y mantenimiento del sistema de gestión certificado." },
-  { name: "Programas de Capacitación para Auditores Internos", description: "Formación especializada para desarrollar competencias en auditorías internas." }
+  { name: "Certificación ISO 9001 - Gestión de la Calidad", description: "Fortalece la satisfacción de sus clientes y la eficiencia de sus procesos internos." },
+  { name: "Certificación ISO 14001 - Gestión Ambiental", description: "Reduce el impacto ambiental de sus operaciones y da cumplimiento a la normativa vigente." },
+  { name: "Certificación ISO 45001 - Seguridad y Salud en el Trabajo", description: "Previene lesiones y enfermedades laborales, protegiendo a sus colaboradores." },
+  { name: "Certificación ISO 37001 - Antisoborno", description: "Previene, detecta y aborda prácticas de soborno dentro de su organización." },
+  { name: "Certificación ISO 39001 - Seguridad Vial", description: "Reduce el riesgo de accidentes de tránsito asociados a su operación." },
+  { name: "Certificación ISO 50001 - Gestión de la Energía", description: "Mejora su desempeño energético y reduce costos operativos." },
+  { name: "Certificación ISO 55001 - Gestión de Activos", description: "Optimiza el valor y el rendimiento de sus activos a lo largo de su ciclo de vida." },
+  { name: "Certificación ISO 22000 / HACCP - Inocuidad Alimentaria", description: "Garantiza la inocuidad de sus productos en toda la cadena alimentaria." },
+  { name: "Auditorías de Segunda Parte", description: "Evaluamos a sus proveedores y partes interesadas conforme a los criterios que su organización defina." },
+  { name: "Auditorías de Diagnóstico", description: "Identificamos brechas y oportunidades de mejora en su sistema de gestión antes de la auditoría de certificación." },
+  { name: "Auditorías de Seguimiento y Recertificación", description: "Verificamos periódicamente el cumplimiento y mantenimiento de su sistema de gestión certificado." },
+  { name: "Programas de Capacitación para Auditores Internos", description: "Formamos a su equipo en las competencias necesarias para realizar auditorías internas efectivas." }
 ].map(s => ({
   "@context": "https://schema.org",
   "@type": "Service",
@@ -129,8 +130,8 @@ const serviceSchemas = [
     "priceSpecification": {
       "@type": "PriceSpecification",
       "priceCurrency": "PEN",
-      "price": "1000",
-      "description": "Cotizaciones desde S/1,000, según alcance"
+      "price": "1200",
+      "description": "Cotizaciones desde S/1,200, según alcance"
     }
   }
 }));
@@ -155,8 +156,9 @@ const serviceSchemas = [
     <Services />
     <Audience />
     <WhyUs />
+    <SuccessCases />
     <FAQ />
-    <FutureSections />
+    <Team />
     <Contact />
   </main>
   <Footer />
