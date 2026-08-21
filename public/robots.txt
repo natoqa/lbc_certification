@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block build artifacts
+Disallow: /_astro/
+
+# Sitemap location
+Sitemap: https://lbccertification.com/sitemap-index.xml

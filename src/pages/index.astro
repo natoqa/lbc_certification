@@ -15,33 +15,122 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 /*
   JSON-LD Structured Data
-  - Organization: LBC Certification company info
+  - Organization: LBC Certification company info (enhanced)
+  - WebSite: Site-level schema for Google sitelinks
+  - LocalBusiness: For Google Maps / Local Pack SEO
+  - BreadcrumbList: Page structure
   - FAQPage: 6 Q&A pairs for rich results
   - Service: one per ISO certification offered
 */
 
+const siteUrl = "https://lbccertification.com";
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
   "name": "LBC Certification S.A.C.",
   "alternateName": "LBC Certification",
   "legalName": "LBC CERTIFICATION S.A.C.",
   "taxID": "20616315405",
-  "url": "https://lbccertification.com",
-  "logo": "https://lbccertification.com/logo.svg",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/images/Logo.png`,
+    "width": 480,
+    "height": 180
+  },
+  "image": `${siteUrl}/og-image.jpg`,
   "description": "Organismo de certificación de sistemas de gestión bajo normas internacionales ISO, con cobertura a nivel nacional en Perú.",
   "telephone": "+51913233177",
+  "knowsLanguage": "es",
   "areaServed": {
     "@type": "Country",
     "name": "Perú"
   },
-  "serviceType": "Certificación ISO",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PE",
+    "addressRegion": "Lima",
+    "addressLocality": "Lima"
+  },
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+51913233177",
     "contactType": "customer service",
     "availableLanguage": "Spanish"
   }
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "name": "LBC Certification",
+  "url": siteUrl,
+  "description": "Certificación de sistemas de gestión ISO 9001, 14001, 45001 y más en Perú.",
+  "publisher": {
+    "@id": `${siteUrl}/#organization`
+  },
+  "inLanguage": "es"
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}/#localbusiness`,
+  "name": "LBC Certification S.A.C.",
+  "image": `${siteUrl}/og-image.jpg`,
+  "url": siteUrl,
+  "telephone": "+51913233177",
+  "description": "Organismo de certificación de sistemas de gestión ISO. Auditorías, certificación y capacitación con cobertura a nivel nacional en Perú.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PE",
+    "addressRegion": "Lima",
+    "addressLocality": "Lima"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -12.0464,
+    "longitude": -77.0428
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Perú"
+  },
+  "priceRange": "$$",
+  "knowsLanguage": "es"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": siteUrl
+    }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteUrl}/#webpage`,
+  "url": siteUrl,
+  "name": "LBC Certification | Certificación ISO en Perú",
+  "description": "Certificación de sistemas de gestión ISO 9001, 14001, 45001 y más. Auditores calificados, proceso transparente, cobertura a nivel nacional. Cotiza gratis por WhatsApp.",
+  "isPartOf": {
+    "@id": `${siteUrl}/#website`
+  },
+  "about": {
+    "@id": `${siteUrl}/#organization`
+  },
+  "inLanguage": "es",
+  "dateModified": new Date().toISOString().split('T')[0]
 };
 
 const faqSchema = {
@@ -143,6 +232,14 @@ const serviceSchemas = [
   <Fragment slot="head">
     <!-- Organization Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <!-- WebSite Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <!-- WebPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
     <!-- FAQPage Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <!-- Service Schemas -->
