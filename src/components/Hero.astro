@@ -78,10 +78,12 @@
       </svg>
     </div>
 
-    <div class="text-center">
+    <div class="text-center" data-animate-group="hero">
       <!-- Small label above H1 -->
       <div
         class="inline-flex items-center gap-2 32inch:gap-3 mb-6 32inch:mb-8 px-4 32inch:px-6 py-1.5 32inch:py-2.5 rounded-full border border-gold-500/30 bg-gold-500/5"
+        data-animate="fade-in"
+        data-animate-order="0"
       >
         <span
           class="w-1.5 h-1.5 32inch:w-2.5 32inch:h-2.5 rounded-full bg-gold-500"
@@ -95,6 +97,7 @@
       <h1
         class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.375rem] 32inch:text-7xl text-white leading-tight 32inch:leading-[1.15] max-w-4xl 32inch:max-w-6xl mx-auto mb-6 32inch:mb-10"
         data-reveal
+        data-animate-order="1"
       >
         Certificación acreditada de Sistemas de Gestión bajo Normas ISO
       </h1>
@@ -102,6 +105,7 @@
       <p
         class="text-silver-300 text-base sm:text-lg md:text-xl 32inch:text-2xl max-w-3xl 32inch:max-w-5xl mx-auto mb-10 32inch:mb-16 leading-relaxed font-sans"
         data-reveal-words
+        data-animate-order="2"
       >
         Proceso integral de certificación realizado por auditores competentes e imparciales: revisión documental, auditoría, emisión del certificado y seguimiento periódico, conforme a estándares internacionales.
       </p>
@@ -109,6 +113,8 @@
       <!-- CTA Buttons -->
       <div
         class="flex flex-col sm:flex-row items-center justify-center gap-4 32inch:gap-6"
+        data-animate-order="3"
+        data-animate="fade-up"
       >
         <a
           href="https://wa.me/51913233177"
@@ -158,6 +164,8 @@
     <div
       class="hidden md:flex flex-col items-center mt-16 32inch:mt-24"
       aria-hidden="true"
+      data-animate="fade-in"
+      data-animate-order="4"
     >
       <div
         class="w-px h-16 32inch:h-24 bg-gradient-to-b from-transparent via-silver-400/40 to-silver-400/20"

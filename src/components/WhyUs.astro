@@ -25,23 +25,23 @@ const reasons = [
 ---
 
 <section id="por-que-elegirnos" class="section-padding bg-navy-50">
-  <div class="max-w-5xl 2xl:max-w-[85rem] 3xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+  <div class="max-w-5xl 2xl:max-w-[85rem] 3xl:max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12" data-animate-group>
     
     <div class="text-center mb-14">
-      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">¿Por qué elegirnos?</span>
-      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal>
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block" data-animate="fade-in" data-animate-order="0">¿Por qué elegirnos?</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal data-animate-order="1">
         Compromiso con la excelencia en cada auditoría
       </h2>
     </div>
 
     <!-- Timeline / Audit Trail -->
-    <div class="relative">
+    <div class="relative" data-animate-order="2" data-animate-stagger="150">
       <!-- Vertical line (hidden on mobile, visible on md+) -->
       <div class="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-silver-200 via-silver-300 to-silver-200" aria-hidden="true"></div>
 
       <div class="flex flex-col gap-8 md:gap-0">
         {reasons.map((reason, index) => (
-          <div class="relative md:pl-24 md:pb-12 last:md:pb-0 group">
+          <div class="relative md:pl-24 md:pb-12 last:md:pb-0 group" data-animate="slide-right">
             {/* Timeline node */}
             <div class="hidden md:flex absolute left-4 top-2 items-center justify-center" aria-hidden="true">
               <div class="w-8 h-8 rounded-full border-2 border-gold-500 bg-white flex items-center justify-center shadow-sm group-hover:bg-gold-500/5 transition-colors">

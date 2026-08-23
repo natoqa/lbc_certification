@@ -386,7 +386,7 @@ h1, h2, h3, h4 {
 /* ========================================
    TEXT REVEAL ANIMATION
    Line-by-line entrance with blur, opacity, translateY.
-   Triggered by IntersectionObserver via reveal-text.js.
+   Triggered by IntersectionObserver via animations.js.
    ======================================== */
 
 .reveal-line {
@@ -397,12 +397,12 @@ h1, h2, h3, h4 {
 .reveal-line__inner {
   display: block;
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(100%);
+  filter: blur(3px);
+  transform: translateY(40%);
   transition:
-    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
 }
 
@@ -425,18 +425,18 @@ h1, h2, h3, h4 {
 /* ========================================
    WORD-BY-WORD REVEAL ANIMATION
    Staggered word entrance for paragraphs.
-   Triggered by IntersectionObserver via reveal-words.js.
+   Triggered by IntersectionObserver via animations.js.
    ======================================== */
 
 .reveal-word {
   display: inline-block;
   opacity: 0;
-  filter: blur(4px);
-  transform: translateY(20px);
+  filter: blur(2px);
+  transform: translateY(16px);
   transition:
-    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
 }
 
@@ -451,6 +451,91 @@ h1, h2, h3, h4 {
   .reveal-word {
     opacity: 1 !important;
     filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   GENERIC ELEMENT ANIMATIONS
+   Used via data-animate="fade-up" etc.
+   Triggered by IntersectionObserver via animations.js.
+   ======================================== */
+
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-fade-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-fade-in {
+  opacity: 0;
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.anim-fade-in.revealed {
+  opacity: 1;
+}
+
+.anim-scale-in {
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-scale-in.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-slide-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-slide-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reduced motion: all generic animations */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up,
+  .anim-fade-in,
+  .anim-scale-in,
+  .anim-slide-left,
+  .anim-slide-right {
+    opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }

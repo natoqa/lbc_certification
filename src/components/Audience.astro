@@ -29,22 +29,22 @@ const motivations = [
 ---
 
 <section id="a-quien-atendemos" class="section-padding bg-white">
-  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12" data-animate-group>
     
     <div class="text-center mb-12">
-      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">¿A quién atendemos?</span>
-      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal>
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block" data-animate="fade-in" data-animate-order="0">¿A quién atendemos?</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal data-animate-order="1">
         Certificación ISO para organizaciones en distintas etapas de crecimiento
       </h2>
-      <p class="text-navy-900/60 text-base sm:text-lg 2xl:text-xl max-w-3xl 2xl:max-w-4xl mx-auto font-sans" data-reveal-words>
+      <p class="text-navy-900/60 text-base sm:text-lg 2xl:text-xl max-w-3xl 2xl:max-w-4xl mx-auto font-sans" data-reveal-words data-animate-order="2">
         Trabajamos con empresas de todos los sectores y tamaños que necesitan certificar su sistema de gestión, ya sea para cumplir un requisito normativo, acceder a nuevas oportunidades comerciales o fortalecer su posicionamiento institucional.
       </p>
     </div>
 
     <!-- Motivations Grid -->
-    <div class="grid sm:grid-cols-2 2xl:grid-cols-4 gap-6 mb-12">
+    <div class="grid sm:grid-cols-2 2xl:grid-cols-4 gap-6 mb-12" data-animate-order="3" data-animate-stagger="90">
       {motivations.map((item) => (
-        <div class="flex gap-5 p-6 rounded-lg bg-navy-50 border border-silver-100">
+        <div class="flex gap-5 p-6 rounded-lg bg-navy-50 border border-silver-100" data-animate="fade-up">
           <div class="shrink-0 w-12 h-12 rounded-lg bg-navy-900 flex items-center justify-center">
             {item.icon === "file-text" && (
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -84,7 +84,7 @@ const motivations = [
     </div>
 
     <!-- Key Benefit Summary -->
-    <div class="text-center bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden">
+    <div class="text-center bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden" data-animate="fade-up" data-animate-order="4">
       <div class="absolute inset-0 opacity-[0.03]" aria-hidden="true">
         <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px); background-size: 3rem 3rem;"></div>
       </div>

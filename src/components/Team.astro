@@ -98,27 +98,27 @@ const team = [
     <div class="w-full h-full" style="background-image: linear-gradient(rgba(19,46,91,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(19,46,91,0.3) 1px, transparent 1px); background-size: 3rem 3rem;"></div>
   </div>
 
-  <div class="relative max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+  <div class="relative max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12" data-animate-group>
     
     <div class="text-center mb-14">
       <!-- Pill Badge -->
-      <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 shadow-sm">
+      <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 shadow-sm" data-animate="fade-in" data-animate-order="0">
         <span class="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" aria-hidden="true"></span>
         <span class="text-gold-600 text-xs 2xl:text-sm font-bold tracking-widest uppercase font-sans">Nuestro equipo</span>
       </div>
 
-      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-4" data-reveal data-animate-order="1">
         Profesionales comprometidos con la excelencia
       </h2>
-      <p class="text-navy-900/65 text-base sm:text-lg 2xl:text-xl max-w-3xl mx-auto font-sans leading-relaxed" data-reveal-words>
+      <p class="text-navy-900/65 text-base sm:text-lg 2xl:text-xl max-w-3xl mx-auto font-sans leading-relaxed" data-reveal-words data-animate-order="2">
         Auditores y especialistas con amplia trayectoria multisectorial que garantizan evaluaciones técnicas, imparciales y de alto valor.
       </p>
     </div>
 
     <!-- Team Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center" data-animate-order="3" data-animate-stagger="80">
       {team.map((member) => (
-        <article class="bg-navy-50/60 rounded-2xl p-6 sm:p-8 border border-silver-200/80 shadow-sm hover:shadow-lg hover:border-gold-500/40 transition-all duration-300 flex flex-col group relative overflow-hidden">
+        <article class="bg-navy-50/60 rounded-2xl p-6 sm:p-8 border border-silver-200/80 shadow-sm hover:shadow-lg hover:border-gold-500/40 transition-all duration-300 flex flex-col group relative overflow-hidden" data-animate="scale-in">
           
           <!-- Top subtle accent line on hover -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

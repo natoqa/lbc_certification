@@ -23,27 +23,27 @@ const sectors = [
 <section id="nosotros" class="section-padding bg-white">
   <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
     
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 2xl:gap-28 items-center">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 2xl:gap-28 items-center" data-animate-group>
       
       <!-- Text content -->
       <div>
-        <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">Sobre nosotros</span>
-        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-6" data-reveal>
+        <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block" data-animate="fade-in" data-animate-order="0">Sobre nosotros</span>
+        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-6" data-reveal data-animate-order="1">
           Certificación acreditada, con cobertura a nivel nacional
         </h2>
-        <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-6" data-reveal-words>
+        <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-6" data-reveal-words data-animate-order="2">
           <strong class="font-bold text-navy-900">LBC CERTIFICATION S.A.C.</strong> es una organización especializada en la <strong class="font-bold text-navy-900">certificación de sistemas de gestión bajo normas internacionales ISO</strong>, orientada a brindar servicios de evaluación de la conformidad con los más altos principios de integridad, imparcialidad y competencia técnica.
         </p>
-        <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-8" data-reveal-words>
+        <p class="text-navy-900/70 text-base sm:text-lg 2xl:text-xl leading-relaxed mb-8" data-reveal-words data-animate-order="3">
           Trabajamos con organizaciones de diferentes sectores y tamaños, comprendiendo las particularidades de cada negocio y aplicando procesos de evaluación adaptados a su alcance y contexto.
         </p>
 
         <!-- Sector Tags -->
-        <div class="mb-2">
+        <div class="mb-2" data-animate-order="4">
           <span class="text-navy-900/50 text-sm font-semibold uppercase tracking-wider mb-3 block">Sectores que atendemos</span>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" data-animate-stagger="50">
             {sectors.map((sector) => (
-              <span class="h-11 flex items-center justify-center px-3 text-sm font-sans font-semibold text-navy-700 bg-navy-50 rounded-md border border-silver-200 text-center whitespace-nowrap">
+              <span class="h-11 flex items-center justify-center px-3 text-sm font-sans font-semibold text-navy-700 bg-navy-50 rounded-md border border-silver-200 text-center whitespace-nowrap" data-animate="scale-in">
                 {sector}
               </span>
             ))}
@@ -55,7 +55,7 @@ const sectors = [
       <div class="flex flex-col items-center lg:items-start gap-8">
         
         <!-- Key Stat -->
-        <div class="bg-navy-50 rounded-lg p-8 sm:p-10 w-full border border-silver-100">
+        <div class="bg-navy-50 rounded-lg p-8 sm:p-10 w-full border border-silver-100" data-animate="fade-up" data-animate-order="2">
           <div class="flex items-start gap-5">
             <!-- Seal icon -->
             <div class="shrink-0 w-14 h-14 rounded-full bg-navy-900 flex items-center justify-center">
@@ -79,7 +79,7 @@ const sectors = [
         </div>
 
         <!-- Contact Info Card -->
-        <div class="bg-white rounded-lg p-6 w-full border border-silver-200">
+        <div class="bg-white rounded-lg p-6 w-full border border-silver-200" data-animate="fade-up" data-animate-order="3">
           <div class="flex items-center gap-4">
             <div class="shrink-0 w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,7 +96,7 @@ const sectors = [
         </div>
 
         <!-- Cobertura Nacional Indicator -->
-        <div class="flex items-center gap-3 text-navy-900/60">
+        <div class="flex items-center gap-3 text-navy-900/60" data-animate="fade-in" data-animate-order="4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
             <circle cx="12" cy="10" r="3"/>

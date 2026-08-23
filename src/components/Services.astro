@@ -74,41 +74,41 @@ const services = [
 ---
 
 <section id="servicios" class="section-padding bg-navy-50">
-  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+  <div class="max-w-6xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12" data-animate-group>
     
     <div class="text-center mb-12">
       <!-- Pill Badge -->
-      <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 shadow-sm">
+      <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 shadow-sm" data-animate="fade-in" data-animate-order="0">
         <span class="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" aria-hidden="true"></span>
         <span class="text-gold-600 text-xs 2xl:text-sm font-bold tracking-widest uppercase font-sans">Nuestros servicios</span>
       </div>
 
       <!-- Section Title -->
-      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-5 leading-tight max-w-4xl mx-auto" data-reveal>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900 mb-5 leading-tight max-w-4xl mx-auto" data-reveal data-animate-order="1">
         Certificación acreditada, auditoría y formación en sistemas de gestión
       </h2>
 
       <!-- Highlighted Paragraph -->
-      <p class="text-navy-900/75 text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto font-sans leading-relaxed mb-8" data-reveal-words>
+      <p class="text-navy-900/75 text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto font-sans leading-relaxed mb-8" data-reveal-words data-animate-order="2">
         Trabajamos con organizaciones de todos los sectores en sus procesos de <strong class="font-bold text-navy-900">certificación</strong>, <strong class="font-bold text-navy-900">evaluación de proveedores</strong> y <strong class="font-bold text-navy-900">fortalecimiento de sistemas de gestión</strong>, bajo principios de <strong class="font-bold text-navy-900">imparcialidad e independencia</strong>.
       </p>
 
       <!-- Pillars / Value Badges -->
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto mb-8">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow">
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto mb-8" data-animate-order="3" data-animate-stagger="70">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow" data-animate="fade-up">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           <span>Imparcialidad & Independencia</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow" data-animate="fade-up">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
             <path d="M9 11l3 3L22 4"/>
             <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
           <span>Evaluación de Conformidad</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow" data-animate="fade-up">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
@@ -117,7 +117,7 @@ const services = [
           </svg>
           <span>Formación Especializada</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-silver-200/80 shadow-sm text-xs sm:text-sm font-semibold text-navy-800 font-sans transition-all duration-300 hover:border-gold-500/50 hover:shadow" data-animate="fade-up">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4963C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
             <path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/>
@@ -128,7 +128,7 @@ const services = [
       </div>
 
       <!-- Accent Divider Line -->
-      <div class="flex items-center justify-center gap-3" aria-hidden="true">
+      <div class="flex items-center justify-center gap-3" aria-hidden="true" data-animate="fade-in" data-animate-order="4">
         <div class="w-16 h-px bg-gradient-to-r from-transparent to-gold-500/50"></div>
         <div class="w-1.5 h-1.5 rotate-45 bg-gold-500"></div>
         <div class="w-16 h-px bg-gradient-to-l from-transparent to-gold-500/50"></div>
@@ -136,7 +136,7 @@ const services = [
     </div>
 
     <!-- Hero Service Card — General Certification -->
-    <div class="mb-12 bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden">
+    <div class="mb-12 bg-navy-900 rounded-lg p-8 sm:p-10 text-white relative overflow-hidden" data-animate="fade-up" data-animate-order="5">
       <!-- Subtle pattern -->
       <div class="absolute inset-0 opacity-[0.04]" aria-hidden="true">
         <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 3rem 3rem;"></div>
@@ -178,9 +178,9 @@ const services = [
     </div>
 
     <!-- Service Cards Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-6 gap-5 2xl:gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-6 gap-5 2xl:gap-6" data-animate-order="6" data-animate-stagger="60">
       {services.map((service) => (
-        <article class="cert-card bg-white rounded-lg p-6 flex flex-col">
+        <article class="cert-card bg-white rounded-lg p-6 flex flex-col" data-animate="scale-in">
           {service.iso ? (
             <span class="text-gold-500 text-xs font-bold tracking-wider uppercase font-sans mb-2">{service.iso}</span>
           ) : (

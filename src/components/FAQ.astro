@@ -37,18 +37,18 @@ const faqs = [
   <!-- Grid paper background (audit worksheet motif) -->
   <div class="absolute inset-0 grid-paper opacity-40 pointer-events-none" aria-hidden="true"></div>
   
-  <div class="relative max-w-3xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+  <div class="relative max-w-3xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12" data-animate-group>
     
     <div class="text-center mb-12">
-      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block">Preguntas frecuentes</span>
-      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal>
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase font-sans mb-3 block" data-animate="fade-in" data-animate-order="0">Preguntas frecuentes</span>
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl text-navy-900" data-reveal data-animate-order="1">
         Resolvemos sus dudas sobre certificación
       </h2>
     </div>
 
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3" data-animate-order="2" data-animate-stagger="60">
       {faqs.map((faq, index) => (
-        <details class="faq-item group bg-white rounded-lg border border-silver-200 overflow-hidden hover:border-silver-300 transition-colors">
+        <details class="faq-item group bg-white rounded-lg border border-silver-200 overflow-hidden hover:border-silver-300 transition-colors" data-animate="fade-up">
           <summary class="flex items-center justify-between gap-4 px-6 py-5 font-sans font-semibold text-navy-900 text-base sm:text-[1.0625rem]">
             <span>{faq.question}</span>
             <svg class="faq-chevron w-5 h-5 text-silver-400 group-hover:text-gold-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -65,7 +65,7 @@ const faqs = [
     </div>
 
     <!-- Highlighted FAQ Support Card -->
-    <div class="mt-12 rounded-2xl bg-navy-900 text-white p-6 sm:p-8 relative overflow-hidden shadow-xl border border-gold-500/20">
+    <div class="mt-12 rounded-2xl bg-navy-900 text-white p-6 sm:p-8 relative overflow-hidden shadow-xl border border-gold-500/20" data-animate="fade-up" data-animate-order="3">
       <!-- Subtle background pattern -->
       <div class="absolute inset-0 opacity-[0.04]" aria-hidden="true">
         <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 2.5rem 2.5rem;"></div>
