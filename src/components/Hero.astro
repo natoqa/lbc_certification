@@ -79,19 +79,23 @@
     </div>
 
     <div class="text-center" data-animate-group="hero">
-      <!-- Small label above H1 -->
+      <!-- Labels above H1 -->
       <div
-        class="inline-flex items-center gap-2 32inch:gap-3 mb-6 32inch:mb-8 px-4 32inch:px-6 py-1.5 32inch:py-2.5 rounded-full border border-gold-500/30 bg-gold-500/5"
+        class="flex flex-wrap items-center justify-center gap-2 32inch:gap-3 mb-6 32inch:mb-8"
         data-animate="fade-in"
         data-animate-order="0"
       >
-        <span
-          class="w-1.5 h-1.5 32inch:w-2.5 32inch:h-2.5 rounded-full bg-gold-500"
-          aria-hidden="true"></span>
-        <span
-          class="text-gold-400 text-xs 32inch:text-base font-semibold tracking-widest uppercase font-sans"
-          >Organismo de Certificación de Sistemas de Gestión</span
-        >
+        {[
+          "Organismo de Certificación",
+          "Representante en Perú de TNV Certification Pvt. Ltd.",
+        ].map((label) => (
+          <span class="inline-flex items-center gap-2 32inch:gap-3 px-4 32inch:px-6 py-1.5 32inch:py-2.5 rounded-full border border-gold-500/30 bg-gold-500/5">
+            <span class="w-1.5 h-1.5 32inch:w-2.5 32inch:h-2.5 shrink-0 rounded-full bg-gold-500" aria-hidden="true"></span>
+            <span class="text-gold-400 text-xs 32inch:text-base font-semibold tracking-widest uppercase font-sans">
+              {label}
+            </span>
+          </span>
+        ))}
       </div>
 
       <h1

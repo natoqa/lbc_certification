@@ -13,197 +13,15 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
-/*
-  JSON-LD Structured Data
-  - Organization: LBC Certification company info (enhanced)
-  - WebSite: Site-level schema for Google sitelinks
-  - LocalBusiness: For Google Maps / Local Pack SEO
-  - BreadcrumbList: Page structure
-  - FAQPage: 6 Q&A pairs for rich results
-  - Service: one per ISO certification offered
-*/
+const siteUrl = new URL("/", Astro.site).href;
+const organizationId = `${siteUrl}#organization`;
+const websiteId = `${siteUrl}#website`;
+const webpageId = `${siteUrl}#webpage`;
+const title = "Certificación ISO en Perú | LBC Certification";
+const description = "Certificación de sistemas de gestión ISO 9001, ISO 14001 e ISO 45001, auditorías y capacitación con cobertura en todo el Perú. Solicita una cotización por WhatsApp.";
+const peru = { "@type": "Country", name: "Perú" };
 
-const siteUrl = "https://www.lbcertificacion.com";
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${siteUrl}/#organization`,
-  "name": "LBC Certification S.A.C.",
-  "alternateName": "LBC Certification",
-  "legalName": "LBC CERTIFICATION S.A.C.",
-  "taxID": "20616315405",
-  "url": siteUrl,
-  "logo": {
-    "@type": "ImageObject",
-    "url": `${siteUrl}/images/Logo.png`,
-    "width": 480,
-    "height": 180
-  },
-  "image": `${siteUrl}/og-image.png`,
-  "description": "Organismo de certificación de sistemas de gestión bajo normas internacionales ISO, con cobertura a nivel nacional en Perú.",
-  "telephone": "+51913233177",
-  "knowsLanguage": "es",
-  "areaServed": {
-    "@type": "Country",
-    "name": "Perú"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "PE",
-    "addressRegion": "Lima",
-    "addressLocality": "Lima"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+51913233177",
-    "contactType": "customer service",
-    "availableLanguage": "Spanish"
-  }
-};
-
-const webSiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${siteUrl}/#website`,
-  "name": "LBC Certification",
-  "url": siteUrl,
-  "description": "Certificación de sistemas de gestión ISO 9001, 14001, 45001 y más en Perú.",
-  "publisher": {
-    "@id": `${siteUrl}/#organization`
-  },
-  "inLanguage": "es"
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${siteUrl}/#localbusiness`,
-  "name": "LBC Certification S.A.C.",
-  "image": `${siteUrl}/og-image.png`,
-  "url": siteUrl,
-  "telephone": "+51913233177",
-  "description": "Organismo de certificación de sistemas de gestión ISO. Auditorías, certificación y capacitación con cobertura a nivel nacional en Perú.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "PE",
-    "addressRegion": "Lima",
-    "addressLocality": "Lima"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -12.0464,
-    "longitude": -77.0428
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Perú"
-  },
-  "priceRange": "$$",
-  "openingHours": "Mo-Su 00:00-24:00",
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "00:00",
-    "closes": "23:59"
-  },
-  "knowsLanguage": "es"
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": siteUrl
-    }
-  ]
-};
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": `${siteUrl}/#webpage`,
-  "url": siteUrl,
-  "name": "LBC Certification | Certificación ISO en Perú",
-  "description": "Certificación de sistemas de gestión ISO 9001, 14001, 45001 y más. Auditores calificados, proceso transparente, cobertura a nivel nacional. Cotiza gratis por WhatsApp.",
-  "isPartOf": {
-    "@id": `${siteUrl}/#website`
-  },
-  "about": {
-    "@id": `${siteUrl}/#organization`
-  },
-  "inLanguage": "es",
-  "dateModified": new Date().toISOString().split('T')[0]
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta obtener una certificación ISO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El costo se determina de acuerdo con la norma, el número de trabajadores, las sedes, el alcance del sistema de gestión y la complejidad de la organización. Elaboramos una cotización personalizada sin compromiso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto tiempo demora el proceso de certificación?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende del nivel de preparación de la organización y del alcance de la certificación. Una vez aceptada la propuesta, coordinamos el plan de auditoría y las fechas de ejecución de manera ágil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué requisitos debo cumplir antes de certificarme?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La organización debe contar con un sistema de gestión implementado y operativo antes de iniciar el proceso de certificación."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿La certificación tiene reconocimiento internacional?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nuestras certificaciones se desarrollan conforme a normas internacionales ISO, aplicando principios de imparcialidad, independencia y competencia técnica en todo el proceso de evaluación. Si su organización requiere una certificación con alcance de acreditación específico, coordinamos con usted los detalles según su necesidad."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué sucede si se identifican no conformidades durante la auditoría?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Se otorga un plazo para implementar las acciones correctivas correspondientes. Una vez verificadas y aceptadas, el proceso continúa hasta la decisión de certificación."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo puedo iniciar el proceso?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Escríbanos por WhatsApp. Un especialista analizará sus necesidades y le enviará una propuesta técnica y económica adaptada a su organización."
-      }
-    }
-  ]
-};
-
-const serviceSchemas = [
+const services = [
   { name: "Certificación ISO 9001 - Gestión de la Calidad", description: "Fortalece la satisfacción de sus clientes y la eficiencia de sus procesos internos." },
   { name: "Certificación ISO 14001 - Gestión Ambiental", description: "Reduce el impacto ambiental de sus operaciones y da cumplimiento a la normativa vigente." },
   { name: "Certificación ISO 45001 - Seguridad y Salud en el Trabajo", description: "Previene lesiones y enfermedades laborales, protegiendo a sus colaboradores." },
@@ -216,52 +34,61 @@ const serviceSchemas = [
   { name: "Auditorías de Diagnóstico", description: "Identificamos brechas y oportunidades de mejora en su sistema de gestión antes de la auditoría de certificación." },
   { name: "Auditorías de Seguimiento y Recertificación", description: "Verificamos periódicamente el cumplimiento y mantenimiento de su sistema de gestión certificado." },
   { name: "Programas de Capacitación para Auditores Internos", description: "Formamos a su equipo en las competencias necesarias para realizar auditorías internas efectivas." }
-].map(s => ({
+];
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": s.name,
-  "description": s.description,
-  "provider": {
-    "@type": "Organization",
-    "name": "LBC Certification S.A.C."
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Perú"
-  },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "PEN",
-    "price": "1000",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "priceCurrency": "PEN",
-      "price": "1200",
-      "description": "Cotizaciones desde S/1,200, según alcance"
-    }
-  }
-}));
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: "LBC Certification",
+      legalName: "LBC CERTIFICATION S.A.C.",
+      taxID: "20616315405",
+      url: siteUrl,
+      logo: new URL("images/Logo.png", siteUrl).href,
+      description: "Organismo de certificación de sistemas de gestión bajo normas ISO con cobertura en Perú.",
+      telephone: "+51913233177",
+      areaServed: peru,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: "+51913233177",
+        availableLanguage: "es",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: siteUrl,
+      name: "LBC Certification",
+      publisher: { "@id": organizationId },
+      inLanguage: "es-PE",
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: siteUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": organizationId },
+      inLanguage: "es-PE",
+    },
+    ...services.map(({ name, description }) => ({
+      "@type": "Service",
+      name,
+      description,
+      url: `${siteUrl}#servicios`,
+      provider: { "@id": organizationId },
+      areaServed: peru,
+    })),
+  ],
+};
 ---
 
-<BaseLayout>
-  <Fragment slot="head">
-    <!-- Organization Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <!-- WebSite Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
-    <!-- LocalBusiness Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    <!-- WebPage Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <!-- Service Schemas -->
-    {serviceSchemas.map(schema => (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    ))}
-  </Fragment>
+<BaseLayout {title} {description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
   <Header />
   <main>
